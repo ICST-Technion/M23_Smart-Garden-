@@ -1,0 +1,102 @@
+2.00.01
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="initiate_block" id="EnA`yi(A:z]y7%g1=bJ6" x="-795" y="-225">
+    <statement name="DO">
+      <block type="texttovoice" id="Q.e*NA3}:jhyl[,~JBeH">
+        <field name="Lang">0</field>
+        <field name="Flag">0</field>
+        <value name="TextInput">
+          <shadow type="my_text" id="``f@A:A[8L.p/~-tLKw~">
+            <field name="TEXT">hello smart garden</field>
+          </shadow>
+        </value>
+        <value name="Volume">
+          <shadow type="field_slider" id="RTu!kgdU@dCoy2?SR|Ye">
+            <mutation color="#7070ff" min="0" max="100"></mutation>
+            <field name="FIELDNAME">100</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="init_storage" id="I}k??*4*t6Z+g.s=El99">
+            <value name="URLInput">
+              <shadow type="my_text" id="4@mtMTCC!2Nk1N^bAk$r">
+                <field name="TEXT">https://temperature-sensor-test-46ad3-default-rtdb.firebaseio.com/</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="controls_whileUntilForever" id="YbgmTP[+NVeCQ}T?YMVY">
+                <field name="MODE">FOREVER</field>
+                <statement name="DO">
+                  <block type="controls_if" id="Zb`:%77c6a`]#uKZCg6e">
+                    <value name="IF0">
+                      <shadow type="logic_boolean" id="q`r^9GLl@Od2JdGG.t*H">
+                        <field name="BOOL">TRUE</field>
+                      </shadow>
+                      <block type="logic_compare" id="52n,EVwzo^iC-RXHgU+F">
+                        <field name="OP">LT</field>
+                        <value name="A">
+                          <shadow type="math_number" id="$^20f~#*u|,+r/s;w#}c">
+                            <field name="NUM">20</field>
+                          </shadow>
+                          <block type="read_DB" id="TRQZP8]AUsq#yV|uZB+7">
+                            <value name="Key">
+                              <shadow type="my_text" id="9yKU2Ou6P#3u!(ZOGyNB">
+                                <field name="TEXT">soil_moisture</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="82X6`ZP#j,HZK92/1QQ`">
+                            <field name="NUM">50</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="image_capture" id="J(3js6dHx8XL@FWCgK?x">
+                        <field name="Camera">0</field>
+                        <value name="FileName">
+                          <shadow type="my_text" id="clM@iH3:|$HB^DG3G88w">
+                            <field name="TEXT">dry_plants</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="upload_storage" id="DQngg)`5W-nN*|hY^U$s">
+                            <field name="file_type">.jpg</field>
+                            <value name="TextInput">
+                              <shadow type="my_text" id="fp-1w)7NAz*-p;4@yD@}">
+                                <field name="TEXT">dry_plants</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="texttovoice" id="gd87kD#y(U-=V0yPA96F">
+                                <field name="Lang">0</field>
+                                <field name="Flag">0</field>
+                                <value name="TextInput">
+                                  <shadow type="my_text" id="JsjKEGoPvUEkuUxcj?MQ">
+                                    <field name="TEXT">dry plant</field>
+                                  </shadow>
+                                </value>
+                                <value name="Volume">
+                                  <shadow type="field_slider" id="BQFKBg5lg:OmKFc:fW3z">
+                                    <mutation color="#7070ff" min="0" max="100"></mutation>
+                                    <field name="FIELDNAME">100</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

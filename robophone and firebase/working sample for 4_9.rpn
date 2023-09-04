@@ -1,0 +1,206 @@
+2.00.01
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Number" id="zg4J8o{)pF+44-+7j6++">humidity</variable>
+    <variable type="Number" id="xIEER0[fXzHh_J{ka~Vp">soil_moisture</variable>
+    <variable type="Number" id="{T6@wz9v*m`(V-e0`8U}">tempreture</variable>
+  </variables>
+  <block type="initiate_block" id="4*9X;#N(9HZuAaM@L4jt" x="-705" y="15">
+    <statement name="DO">
+      <block type="init_DB" id="D?U}PNl%FMBnhZi9mUZ]">
+        <value name="URLInput">
+          <shadow type="my_text" id="0+x)d{TAGxjc@3!+Zr-]">
+            <field name="TEXT">https://temperature-sensor-test-46ad3-default-rtdb.firebaseio.com/</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="wait" id=".VFis:oeU1@P9#AgYJ/?">
+            <field name="unit">ms</field>
+            <value name="MilliSECONDS">
+              <shadow type="math_number" id="jr8yM+;EEt?EdsZnriu[">
+                <field name="NUM">1000</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="controls_whileUntilForever" id="QW#~LR}WGa/o;QLO0648">
+                <field name="MODE">FOREVER</field>
+                <statement name="DO">
+                  <block type="controls_if" id="hL8@5`H#F80vD/[x=nkV">
+                    <mutation elseif="0" else="1"></mutation>
+                    <value name="IF0">
+                      <shadow type="logic_boolean" id="hn/SN$fjbhMv?Z1*N.YW">
+                        <field name="BOOL">TRUE</field>
+                      </shadow>
+                      <block type="logic_compare" id="4V,4|UyT{Av$TP1J$*sH">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <shadow type="math_number" id="Sa`5E?Zbp!HG71f(nw-!">
+                            <field name="NUM">20</field>
+                          </shadow>
+                          <block type="read_DB" id="jM;B4M|UUN+8U6uGMn;t">
+                            <value name="Key">
+                              <shadow type="my_text" id=";0N}`Pxo`~4r`8Gn**VA">
+                                <field name="TEXT">soil_moisture</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="]nRdSAj~c]`$T?l_ehyT">
+                            <field name="NUM">3500</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="texttovoice" id="N:n*H%AoS:)^_7m:VQ@f">
+                        <field name="Lang">0</field>
+                        <field name="Flag">0</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="-8S!Mw2nYvX}]xPZ?:3n">
+                            <field name="TEXT">dry plant</field>
+                          </shadow>
+                        </value>
+                        <value name="Volume">
+                          <shadow type="field_slider" id="O?l,5HIJ+rZcE:;p?!GE">
+                            <mutation color="#7070ff" min="0" max="100"></mutation>
+                            <field name="FIELDNAME">100</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="lcd_message" id="bUa~#y^5i;]=.l1IW@oG">
+                        <field name="Color">2</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="!td!]PbEutgSp#s}KzR(">
+                            <field name="TEXT">okay</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="write_DB" id="69_;UFkCcsyccgSg,1f`">
+                    <value name="Value">
+                      <shadow type="math_number" id="?q!Zn0?%jCt6S=-4Xfw?">
+                        <field name="NUM">123</field>
+                      </shadow>
+                      <block type="my_variables_get_dynamic" id="Evu$B:%`,.PM69kc:yI}">
+                        <mutation blockstyle="Number"></mutation>
+                        <field name="VAR" id="zg4J8o{)pF+44-+7j6++" variabletype="Number">humidity</field>
+                      </block>
+                    </value>
+                    <value name="Key">
+                      <shadow type="my_text" id="W:*E(qzT:7F+(0Ahl]}.">
+                        <field name="TEXT">humidity</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="wait" id="piWt4aAAf/U9D;4MbdAN">
+                        <field name="unit">ms</field>
+                        <value name="MilliSECONDS">
+                          <shadow type="math_number" id="g0H|?rd;ZynJ;g,eNF+S">
+                            <field name="NUM">100</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="write_DB" id="k6tO$Cj@gzhA|y$2bP9,">
+                            <value name="Value">
+                              <shadow type="math_number">
+                                <field name="NUM">123</field>
+                              </shadow>
+                              <block type="my_variables_get_dynamic" id="X%Qn`!jVZ-ZlL/~wum$+">
+                                <mutation blockstyle="Number"></mutation>
+                                <field name="VAR" id="xIEER0[fXzHh_J{ka~Vp" variabletype="Number">soil_moisture</field>
+                              </block>
+                            </value>
+                            <value name="Key">
+                              <shadow type="my_text" id="MQuMAixkJfxgV7+,9+qy">
+                                <field name="TEXT">soil_moisture</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="wait" id="V[*OpEhhsn*XYvteF~6C">
+                                <field name="unit">ms</field>
+                                <value name="MilliSECONDS">
+                                  <shadow type="math_number" id="fO%STo5~^TZxVT^XH$3|">
+                                    <field name="NUM">100</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="write_DB" id="D2Yg[IU|I@i}D)zR~ai=">
+                                    <value name="Value">
+                                      <shadow type="math_number">
+                                        <field name="NUM">123</field>
+                                      </shadow>
+                                      <block type="my_variables_get_dynamic" id="uSN!z|#1VG[5:I)E9OvD">
+                                        <mutation blockstyle="Number"></mutation>
+                                        <field name="VAR" id="{T6@wz9v*m`(V-e0`8U}" variabletype="Number">tempreture</field>
+                                      </block>
+                                    </value>
+                                    <value name="Key">
+                                      <shadow type="my_text" id="BzW.e?NDg`!J@zejq{CN">
+                                        <field name="TEXT">tempreture</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_message" id="b{|YM,%4K;HiN.+v@k$l">
+                                        <field name="Color">2</field>
+                                        <value name="TextInput">
+                                          <shadow type="my_text" id="),BWd}-b_SyNJ:503EFw">
+                                            <field name="TEXT">bye</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="my_variables_set_dynamic" id="W(cN(/ypxolKD~dU5o*y" disabled="true" x="-975" y="195">
+    <mutation blockstyle="Number"></mutation>
+    <field name="VAR" id="zg4J8o{)pF+44-+7j6++" variabletype="Number">humidity</field>
+    <value name="VALUE">
+      <shadow type="math_number" id="!usQt{tz-FS2pLb3=Zoq">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="my_variables_set_dynamic" id="ex?%,yjp.YzEUiiIx59x" disabled="true">
+        <mutation blockstyle="Number"></mutation>
+        <field name="VAR" id="xIEER0[fXzHh_J{ka~Vp" variabletype="Number">soil_moisture</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="|iaO]B;wDu,KsL8dqXoD">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="my_variables_set_dynamic" id="r^[lr5q2T8xZxH*2I#1a" disabled="true">
+            <mutation blockstyle="Number"></mutation>
+            <field name="VAR" id="{T6@wz9v*m`(V-e0`8U}" variabletype="Number">tempreture</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="wFE{]^K8UOWe.~=$1feh">
+                <field name="NUM">22</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
