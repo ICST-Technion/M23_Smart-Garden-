@@ -1,0 +1,2552 @@
+2.00.02
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Number" id=".5Nv9K_f^UiTV@+!]@5/">optimal_temperature</variable>
+    <variable type="Number" id="0.Bi,?tPdhcQy}7Pej@.">soil_moisture_dry_min</variable>
+    <variable type="Boolean" id="nbb14Cf+.PUCH{L1pnjs">once</variable>
+    <variable type="Number" id="n!`A-|G20qoz^)y^slM9">optimal_humidity</variable>
+    <variable type="Number" id="?CP/K3l7Ikek9ro/JE8}">soil_moisture_weight</variable>
+    <variable type="Boolean" id="0GL;V;P25Eys*zQ.ebV:">selected_flower</variable>
+    <variable type="Boolean" id="RiH~)X]gwuBDm8_[T3ry">Calibration</variable>
+    <variable type="Number" id="ab)AHew3=uDp*U[{7t6Z">soil_moisture_percent</variable>
+    <variable type="Number" id="Xt~^U9)NEYBdHxd6x#u|">environment_value</variable>
+    <variable type="Number" id=",Tt@kdh7I{xDOgu4=)3s">humidity_weight</variable>
+    <variable type="Number" id="BgpLylK4K))Xr-=KNd{G">tempreture_weight</variable>
+    <variable type="Boolean" id="Mx~uA4paC~ck=O)#QGg`">exec</variable>
+    <variable type="String" id="w~!x4S7(~XDKD(ZPkZQn">new_plant_name</variable>
+  </variables>
+  <block type="procedures_defnoreturn" id="SOmT)`Y6z6~/:6,P-%]`" x="-2775" y="-1725">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">כיול חיישן לחות אדמה</field>
+    <statement name="STACK">
+      <block type="lcd_text" id="An}:=IaD?2v.9DA,mqm*">
+        <field name="Color">2</field>
+        <value name="TextInput">
+          <shadow type="my_text" id="pcQ+09=)E[IT0S0h05Cm" inline="true">
+            <field name="TEXT">נבצע כיול לחיישן לחות האדמה</field>
+          </shadow>
+        </value>
+        <value name="LineNumber">
+          <shadow type="field_slider" id="T988HT,zgSI$?M-Sd~v5" inline="true">
+            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+            <field name="FIELDNAME">0</field>
+          </shadow>
+        </value>
+        <value name="Offset">
+          <shadow type="field_slider" id="cY|GsFM,c:hlQ`9/qkf#" inline="true">
+            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+            <field name="FIELDNAME">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="wait" id="XjF;D}ga#}}p/;T#D_EK">
+            <field name="unit">sec</field>
+            <value name="MilliSECONDS">
+              <shadow type="math_number" id="Y=Q|x!VqH|:t-ORf#,La">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="lcd_text" id="^84B(fyrgsS1H;cEBTNb">
+                <field name="Color">2</field>
+                <value name="TextInput">
+                  <shadow type="my_text" id="kopG2|1{-s$P[[U,yQ`D" inline="true">
+                    <field name="TEXT">נגדיר טווח יבש: </field>
+                  </shadow>
+                </value>
+                <value name="LineNumber">
+                  <shadow type="field_slider" id="j4~p%=n-/guWC$Zbe})i" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                    <field name="FIELDNAME">0</field>
+                  </shadow>
+                </value>
+                <value name="Offset">
+                  <shadow type="field_slider" id="S]IC1tHoJMYWy=J%QZkd" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                    <field name="FIELDNAME">0</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="xw_ga8I`#J_O|[(0P;B]">
+                    <mutation name="הגדרת מינמום ומקסימום למדידות">
+                      <arg name="path to min" type="String"></arg>
+                      <arg name="path to max" type="String"></arg>
+                      <image src="/static/images/PolyGroup_000_MyBlockRed_Diagram.png"></image>
+                    </mutation>
+                    <value name="ARG0">
+                      <shadow type="my_text" id="v}K6+j{[K^r*Z.PDQTPx">
+                        <field name="TEXT">Calibration/dry/min</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG1">
+                      <shadow type="my_text" id=")k,P~qLY3rgV6-,a77}6">
+                        <field name="TEXT">Calibration/dry/max</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="lcd_text" id="!4_pCn8E/m0vZSbptVa^">
+                        <field name="Color">2</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="]dm7(%y`:|?oLV#Q]9Od" inline="true">
+                            <field name="TEXT">נגדיר טווח אמצעי: </field>
+                          </shadow>
+                        </value>
+                        <value name="LineNumber">
+                          <shadow type="field_slider" id="y]:Y:;MoQgDm9;.mD=^K" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                            <field name="FIELDNAME">0</field>
+                          </shadow>
+                        </value>
+                        <value name="Offset">
+                          <shadow type="field_slider" id="c#+;e69H+?,,=7]EUV*y" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                            <field name="FIELDNAME">0</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="_wa2X#R:I3rAY?%uR{vx">
+                            <mutation name="הגדרת מינמום ומקסימום למדידות">
+                              <arg name="path to min" type="String"></arg>
+                              <arg name="path to max" type="String"></arg>
+                              <image src="/static/images/PolyGroup_000_MyBlockRed_Diagram.png"></image>
+                            </mutation>
+                            <value name="ARG0">
+                              <shadow type="my_text" id=",ts!.}Bgx3rNNwyJr-5R">
+                                <field name="TEXT">Calibration/medium/min</field>
+                              </shadow>
+                            </value>
+                            <value name="ARG1">
+                              <shadow type="my_text" id="qi!,pxo779q$z/tC7Zpz">
+                                <field name="TEXT">Calibration/medium/max</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="lcd_text" id="aj+T*CmoUfYGR!3hrGJ7">
+                                <field name="Color">2</field>
+                                <value name="TextInput">
+                                  <shadow type="my_text" id="~/_t6TK1V?gmdaXP{Kt]" inline="true">
+                                    <field name="TEXT">נגדיר טווח רטוב: </field>
+                                  </shadow>
+                                </value>
+                                <value name="LineNumber">
+                                  <shadow type="field_slider" id="`G:_vGF4_;hF|7An_00z" inline="true">
+                                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                    <field name="FIELDNAME">0</field>
+                                  </shadow>
+                                </value>
+                                <value name="Offset">
+                                  <shadow type="field_slider" id=":V|CGt+E}M4K1TC=:Uqn" inline="true">
+                                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                    <field name="FIELDNAME">0</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="procedures_callnoreturn" id="vif7S?VPXxMQ~NMR{rm.">
+                                    <mutation name="הגדרת מינמום ומקסימום למדידות">
+                                      <arg name="path to min" type="String"></arg>
+                                      <arg name="path to max" type="String"></arg>
+                                      <image src="/static/images/PolyGroup_000_MyBlockRed_Diagram.png"></image>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <shadow type="my_text" id="t?QoA#PUqsi(1TO$SUh5">
+                                        <field name="TEXT">Calibration/wet/min</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="ARG1">
+                                      <shadow type="my_text" id="..TfOtaE_8kunoeF9}zI">
+                                        <field name="TEXT">Calibration/wet/max</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_text" id=".Cd{-4!0dBQMVqx=?^MO">
+                                        <field name="Color">2</field>
+                                        <value name="TextInput">
+                                          <shadow type="my_text" id="ue$v!MGTW$sXEpDYg^;p" inline="true">
+                                            <field name="TEXT">נגדיר טווח רטוב מאוד:</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="LineNumber">
+                                          <shadow type="field_slider" id="wY.%d+CR-gu)I3EYGy,v" inline="true">
+                                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                            <field name="FIELDNAME">0</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="Offset">
+                                          <shadow type="field_slider" id="t$.-8!nVb@hHz[X1WH$o" inline="true">
+                                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                            <field name="FIELDNAME">0</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="procedures_callnoreturn" id="X]pQ;lS`}qbm#6[Y]9K!">
+                                            <mutation name="הגדרת מינמום ומקסימום למדידות">
+                                              <arg name="path to min" type="String"></arg>
+                                              <arg name="path to max" type="String"></arg>
+                                              <image src="/static/images/PolyGroup_000_MyBlockRed_Diagram.png"></image>
+                                            </mutation>
+                                            <value name="ARG0">
+                                              <shadow type="my_text" id="]Cop`}X+TfK%8za)IK{%">
+                                                <field name="TEXT">Calibration/tooWet/min</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="ARG1">
+                                              <shadow type="my_text" id="}=xy$Tmc*wx`AOsg#SO?">
+                                                <field name="TEXT">Calibration/tooWet/max</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="my_variables_set_dynamic" id="LLI~XapI?O0gnak^1bLn">
+                                                <mutation blockstyle="Boolean"></mutation>
+                                                <field name="VAR" id="RiH~)X]gwuBDm8_[T3ry" variabletype="Boolean">Calibration</field>
+                                                <value name="VALUE">
+                                                  <shadow type="logic_boolean" id="=x0OK5y^8Quyo:?w]5NK">
+                                                    <field name="BOOL">TRUE</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initiate_block" id="K/*`IvxY6b$Djb?o+W5C" inline="true" x="-15" y="-1211">
+    <statement name="DO">
+      <block type="init_DB" id="6l$PsrBQ]VqX=8}}A,;-">
+        <value name="URLInput">
+          <shadow type="my_text" id="g_Y`+mR.KB,ui0xFGJX9" inline="true">
+            <field name="TEXT">https://temperature-sensor-test-46ad3-default-rtdb.firebaseio.com/</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="write_DB" id="8},rZt_?b5Y-rwUKViT~">
+            <field name="input_type">2</field>
+            <value name="Value">
+              <shadow type="logic_boolean" id=",|/s3gG-/Wo.xV4j1)q.">
+                <field name="BOOL">FALSE</field>
+              </shadow>
+            </value>
+            <value name="Key">
+              <shadow type="my_text" id="]cDDzYVwvLU/VhGORt7I">
+                <field name="TEXT">exec</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="showImage" id="KCkL[zd]L1.sW(Er#yDG">
+                <field name="image">url</field>
+                <value name="FileName">
+                  <shadow type="my_text" id=")u?yIKhSP~CUO=%)gYaO" inline="true">
+                    <field name="TEXT">https://www.zdnet.com/a/img/2022/12/30/15acb184-94ea-4ba7-ab2b-1986bf3265d0/smart-garden-pro-9.jpg</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="my_variables_set_dynamic" id="8TvTd!aRtj`u!ebrm~M:">
+                    <mutation blockstyle="Boolean"></mutation>
+                    <field name="VAR" id="nbb14Cf+.PUCH{L1pnjs" variabletype="Boolean">once</field>
+                    <value name="VALUE">
+                      <shadow type="logic_boolean" id="H7wFkGf*FIbr@Ery=12I" inline="true">
+                        <field name="BOOL">TRUE</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="my_variables_set_dynamic" id="%TyE,9j9T_c8;|K-nsA*">
+                        <mutation blockstyle="Boolean"></mutation>
+                        <field name="VAR" id="0GL;V;P25Eys*zQ.ebV:" variabletype="Boolean">selected_flower</field>
+                        <value name="VALUE">
+                          <shadow type="logic_boolean" id="8crbbLB,Jk3nGE=lu^{7" inline="true">
+                            <field name="BOOL">FALSE</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="my_variables_set_dynamic" id="@/x(K0B2ITp(V*12[m(3">
+                            <mutation blockstyle="Boolean"></mutation>
+                            <field name="VAR" id="RiH~)X]gwuBDm8_[T3ry" variabletype="Boolean">Calibration</field>
+                            <value name="VALUE">
+                              <shadow type="logic_boolean" id="hffQwGfR3xa:jr3xA%jH" inline="true">
+                                <field name="BOOL">FALSE</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="procedures_callnoreturn" id="u2wpruhJvXV[LIDB5#YM">
+                                <mutation name="כיול חיישן לחות אדמה">
+                                  <image src="/static/images/IRControl_Diagram.png"></image>
+                                </mutation>
+                                <next>
+                                  <block type="clearscreen" id="-,5J6odsRVmNs8D5Ytp$">
+                                    <next>
+                                      <block type="procedures_callnoreturn" id="Kq:Q#Or!0.ACNfl3CDrf">
+                                        <mutation name="בחירת צמח">
+                                          <image src="/static/images/IRControl_Diagram.png"></image>
+                                        </mutation>
+                                        <next>
+                                          <block type="controls_whileUntilForever" id="L/9-S|Sq;G?(wE^~h%[W">
+                                            <field name="MODE">FOREVER</field>
+                                            <statement name="DO">
+                                              <block type="write_DB" id="^Vq#O@L?aUttr6Oo]eg,">
+                                                <field name="input_type">2</field>
+                                                <value name="Value">
+                                                  <shadow type="logic_boolean" id="dWyVF)]8ahJq}BO=WUxr">
+                                                    <field name="BOOL">TRUE</field>
+                                                  </shadow>
+                                                </value>
+                                                <value name="Key">
+                                                  <shadow type="my_text" id="(*3-6pJ(.chYyqCrvQ;`">
+                                                    <field name="TEXT">exec</field>
+                                                  </shadow>
+                                                </value>
+                                                <next>
+                                                  <block type="my_variables_set_dynamic" id=")o)c@AqLnMEzHxlDm+Sa">
+                                                    <mutation blockstyle="Boolean"></mutation>
+                                                    <field name="VAR" id="Mx~uA4paC~ck=O)#QGg`" variabletype="Boolean">exec</field>
+                                                    <value name="VALUE">
+                                                      <shadow type="logic_boolean" id="tmt4T54guPv`qpR?gq;h">
+                                                        <field name="BOOL">TRUE</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <next>
+                                                      <block type="procedures_callnoreturn" id="%x+fun/tx$fcQ4IV-A:/">
+                                                        <mutation name="הדפסת טמפרטורה">
+                                                          <image src="/static/images/IRControl_Diagram.png"></image>
+                                                        </mutation>
+                                                        <next>
+                                                          <block type="procedures_callnoreturn" id=":s`.(,C$4Ccg7Hc_y?cb">
+                                                            <mutation name="הדפסת לחות אוויר">
+                                                              <image src="/static/images/IRControl_Diagram.png"></image>
+                                                            </mutation>
+                                                            <next>
+                                                              <block type="procedures_callnoreturn" id="CFNPw~z5JC2O$F-y7.k?">
+                                                                <mutation name="הדפסת לחות אדמה">
+                                                                  <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                </mutation>
+                                                                <next>
+                                                                  <block type="lcd_text" id="|xSK_sq}:7Hk$4Ug]yI1">
+                                                                    <field name="Color">2</field>
+                                                                    <value name="TextInput">
+                                                                      <shadow type="my_text" id="JkUoHq6izv+2dkpyCp%F" inline="true">
+                                                                        <field name="TEXT">הערכים שלנו: </field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                    <value name="LineNumber">
+                                                                      <shadow type="field_slider" id="T9zyTpOzjA?%JU*yIGD!" inline="true">
+                                                                        <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                                        <field name="FIELDNAME">0</field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                    <value name="Offset">
+                                                                      <shadow type="field_slider" id="3Z%bbpA+l:#/[yx_^QJh" inline="true">
+                                                                        <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                                        <field name="FIELDNAME">0</field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="controls_if" id="}}(1brqcYofWDU/[{WO}">
+                                                                        <value name="IF0">
+                                                                          <shadow type="logic_boolean">
+                                                                            <field name="BOOL">TRUE</field>
+                                                                          </shadow>
+                                                                          <block type="telephony_compare" id="xM+Ru;QP3m]=q[uS!4!8">
+                                                                            <field name="Mode">V2TCompare</field>
+                                                                            <field name="Lang">1</field>
+                                                                            <field name="operator">0</field>
+                                                                            <value name="threshold">
+                                                                              <shadow type="my_text" id="d;3n)cZ#r*f+h6$+/_v%">
+                                                                                <field name="TEXT">השקייה למערכת</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO0">
+                                                                          <block type="showImage" id="|?3^s-fsecuqKXmBS|9g">
+                                                                            <field name="image">waterlevel0</field>
+                                                                            <next>
+                                                                              <block type="write_DB" id="*XO0!QNRR8X5br+N`S*(">
+                                                                                <field name="input_type">0</field>
+                                                                                <value name="Value">
+                                                                                  <shadow type="math_number" id="}pZ~5O^gUFXD9j@X%|tm">
+                                                                                    <field name="NUM">1</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <value name="Key">
+                                                                                  <shadow type="my_text" id="4mv/5F9NA3,B*MokG7rI">
+                                                                                    <field name="TEXT">start_irrigation</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <next>
+                                                                          <block type="controls_if" id="Qt!HaZ5tBg$64|keb^[m">
+                                                                            <value name="IF0">
+                                                                              <shadow type="logic_boolean">
+                                                                                <field name="BOOL">TRUE</field>
+                                                                              </shadow>
+                                                                              <block type="telephony_compare" id="QCH~_WUqaByffX;++fHi">
+                                                                                <field name="Mode">V2TCompare</field>
+                                                                                <field name="Lang">1</field>
+                                                                                <field name="operator">0</field>
+                                                                                <value name="threshold">
+                                                                                  <shadow type="my_text" id="xxsZE=`F,r,byCrG#Mr8">
+                                                                                    <field name="TEXT">הפסק השקייה</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <statement name="DO0">
+                                                                              <block type="write_DB" id="YT%#k+hTmty{F;rpiinC">
+                                                                                <field name="input_type">0</field>
+                                                                                <value name="Value">
+                                                                                  <shadow type="math_number" id="aKZ0wE3.XOiNxH^93TJ:">
+                                                                                    <field name="NUM">0</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <value name="Key">
+                                                                                  <shadow type="my_text" id="WS?DM5=efa`c3c+B-pF)">
+                                                                                    <field name="TEXT">start_irrigation</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="clear_component" id="bt/h@fOY~mS:eHx@AX54">
+                                                                                    <field name="component">13</field>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </statement>
+                                                                            <next>
+                                                                              <block type="controls_if" id="bwxN:-zRH_/Qe;g%T]Ix">
+                                                                                <value name="IF0">
+                                                                                  <shadow type="logic_boolean">
+                                                                                    <field name="BOOL">TRUE</field>
+                                                                                  </shadow>
+                                                                                  <block type="telephony_compare" id="Rahqn,V!]kc,]-xCN{L5">
+                                                                                    <field name="Mode">V2TCompare</field>
+                                                                                    <field name="Lang">1</field>
+                                                                                    <field name="operator">0</field>
+                                                                                    <value name="threshold">
+                                                                                      <shadow type="my_text" id="%*|~954l?[+rGafYVFL+">
+                                                                                        <field name="TEXT">הצגת גרף</field>
+                                                                                      </shadow>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <statement name="DO0">
+                                                                                  <block type="procedures_callnoreturn" id="cQo0sGOpvnztcHaT1tVR">
+                                                                                    <mutation name="חישוב לגרף">
+                                                                                      <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                    </mutation>
+                                                                                  </block>
+                                                                                </statement>
+                                                                                <next>
+                                                                                  <block type="controls_if" id="j1uH|v%f-nzM+s+(Th)X">
+                                                                                    <value name="IF0">
+                                                                                      <shadow type="logic_boolean">
+                                                                                        <field name="BOOL">TRUE</field>
+                                                                                      </shadow>
+                                                                                      <block type="telephony_compare" id="(*x$nv`YW#|L@!fdj:`P">
+                                                                                        <field name="Mode">V2TCompare</field>
+                                                                                        <field name="Lang">1</field>
+                                                                                        <field name="operator">0</field>
+                                                                                        <value name="threshold">
+                                                                                          <shadow type="my_text" id="VrKZR7%!GP4iz}|zxV^l">
+                                                                                            <field name="TEXT">הסתר גרף</field>
+                                                                                          </shadow>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <statement name="DO0">
+                                                                                      <block type="clear_component" id="8Ys!pHL}UwH,~!e`Ex/L">
+                                                                                        <field name="component">11</field>
+                                                                                      </block>
+                                                                                    </statement>
+                                                                                    <next>
+                                                                                      <block type="controls_if" id="tb6O4A_QVJb//7cX?#JS">
+                                                                                        <value name="IF0">
+                                                                                          <shadow type="logic_boolean">
+                                                                                            <field name="BOOL">TRUE</field>
+                                                                                          </shadow>
+                                                                                          <block type="telephony_compare" id="zOEui=6;*Z_H]n:=i#uF">
+                                                                                            <field name="Mode">V2TCompare</field>
+                                                                                            <field name="Lang">1</field>
+                                                                                            <field name="operator">0</field>
+                                                                                            <value name="threshold">
+                                                                                              <shadow type="my_text" id="DWkaHNnM5iCPz]z[*Z]2">
+                                                                                                <field name="TEXT">צמח חדש</field>
+                                                                                              </shadow>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <statement name="DO0">
+                                                                                          <block type="procedures_callnoreturn" id="pPDw[SO)B`^$3C_6ZsB{">
+                                                                                            <mutation name="בחירת צמח">
+                                                                                              <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                            </mutation>
+                                                                                          </block>
+                                                                                        </statement>
+                                                                                        <next>
+                                                                                          <block type="controls_if" id="bAh$LnIF7p+D4_)MLgl2">
+                                                                                            <value name="IF0">
+                                                                                              <shadow type="logic_boolean">
+                                                                                                <field name="BOOL">TRUE</field>
+                                                                                              </shadow>
+                                                                                              <block type="telephony_compare" id="+{B*,Jg80Ku(6K}JZ2;t">
+                                                                                                <field name="Mode">V2TCompare</field>
+                                                                                                <field name="Lang">1</field>
+                                                                                                <field name="operator">0</field>
+                                                                                                <value name="threshold">
+                                                                                                  <shadow type="my_text" id="}e}*0k]}sYE|+q+x|S+v">
+                                                                                                    <field name="TEXT">הפעלה מחדש</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <statement name="DO0">
+                                                                                              <block type="write_DB" id=";@Q0_yq@nK!)899Lmvo#">
+                                                                                                <field name="input_type">2</field>
+                                                                                                <value name="Value">
+                                                                                                  <shadow type="logic_boolean" id="4k6?%s;C6_1*jgtFYX4a">
+                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                                <value name="Key">
+                                                                                                  <shadow type="my_text" id="%qO4RvCDY!*]ChGtaq,K">
+                                                                                                    <field name="TEXT">exec</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="controls_repeat_ext" id="5@tf/ciS^!QchS!B1-y!">
+                                                                                                    <value name="TIMES">
+                                                                                                      <shadow type="math_number" id="t%2VUp*GYB`Xk1/P%#%|">
+                                                                                                        <field name="NUM">1</field>
+                                                                                                      </shadow>
+                                                                                                    </value>
+                                                                                                    <statement name="DO">
+                                                                                                      <block type="procedures_callnoreturn" id="LX,y4fRdz!Wh/..H)KK?">
+                                                                                                        <mutation name="כיול חיישן לחות אדמה">
+                                                                                                          <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                                        </mutation>
+                                                                                                        <next>
+                                                                                                          <block type="clearscreen" id="BcW$p0P#tP,LTfpNzek:">
+                                                                                                            <next>
+                                                                                                              <block type="procedures_callnoreturn" id="EUz=ty(xF}4EWKA@eJE*">
+                                                                                                                <mutation name="בחירת צמח">
+                                                                                                                  <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                                                </mutation>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </statement>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </statement>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="yc6SXAASn$cpb,Ld6SH|" x="-1215" y="-975">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">בחירת צמח</field>
+    <statement name="STACK">
+      <block type="lcd_text" id="XulvS]E?rP:f^Jm(v5h8">
+        <field name="Color">2</field>
+        <value name="TextInput">
+          <shadow type="my_text" id="c5VcpE!*p}P~DnpmpYw-" inline="true">
+            <field name="TEXT">עכשיו נבחר את הצמח :)</field>
+          </shadow>
+        </value>
+        <value name="LineNumber">
+          <shadow type="field_slider" id="smn7LZGClxmp(!6AV_n+" inline="true">
+            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+            <field name="FIELDNAME">0</field>
+          </shadow>
+        </value>
+        <value name="Offset">
+          <shadow type="field_slider" id="%U/s^$l#t5FRe9;.R#m;" inline="true">
+            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+            <field name="FIELDNAME">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="wait" id="ec1QK;?0F}ammyT0C/4B">
+            <field name="unit">sec</field>
+            <value name="MilliSECONDS">
+              <shadow type="math_number" id="l3qN.bf=Z0U,6^_]vTEZ">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="lcd_text" id="BS$5*MZr7`^|0R`@_/2b">
+                <field name="Color">3</field>
+                <value name="TextInput">
+                  <shadow type="my_text" id="^f=aKqbv[VKH/:Cx)=vZ" inline="true">
+                    <field name="TEXT">אמר את שם הצמח שאתה רוצה לבחור </field>
+                  </shadow>
+                </value>
+                <value name="LineNumber">
+                  <shadow type="field_slider" id="#zu3k=;)@%q{_+_zJ5e!" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                    <field name="FIELDNAME">0</field>
+                  </shadow>
+                </value>
+                <value name="Offset">
+                  <shadow type="field_slider" id="6j/,zsv}qQ^==~vk}eyC" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                    <field name="FIELDNAME">0</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="lcd_text" id="}+4k+hR%ZmgW(hQ$=N#+">
+                    <field name="Color">2</field>
+                    <value name="TextInput">
+                      <shadow type="my_text" id="u,%ayGHP,a6}zi9lo2MS" inline="true">
+                        <field name="TEXT">1. קקטוס</field>
+                      </shadow>
+                    </value>
+                    <value name="LineNumber">
+                      <shadow type="field_slider" id="/[SD2=,#4tnAQp{h#_bG" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                        <field name="FIELDNAME">1</field>
+                      </shadow>
+                    </value>
+                    <value name="Offset">
+                      <shadow type="field_slider" id="CO~mWLb4:Uns1fDUi^Z6" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                        <field name="FIELDNAME">0</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="lcd_text" id="[Ex(R6)pE[V[9^2_i8g|">
+                        <field name="Color">2</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="z=ls4il;.b-8]R_Rc!6=" inline="true">
+                            <field name="TEXT">2. כלנית</field>
+                          </shadow>
+                        </value>
+                        <value name="LineNumber">
+                          <shadow type="field_slider" id="Hsakj2JE#?d+/@6pRV_m" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                            <field name="FIELDNAME">2</field>
+                          </shadow>
+                        </value>
+                        <value name="Offset">
+                          <shadow type="field_slider" id="_N]F?H}!^^T19i-y%!u8" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                            <field name="FIELDNAME">0</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="lcd_text" id="1VDr~#C4#c8q}*86*;M7">
+                            <field name="Color">2</field>
+                            <value name="TextInput">
+                              <shadow type="my_text" id="zK+P]Ovz(_Z$-Wm_v*8A" inline="true">
+                                <field name="TEXT">3. אחר</field>
+                              </shadow>
+                            </value>
+                            <value name="LineNumber">
+                              <shadow type="field_slider" id="NOpF6awoS%8|AF5iEIi=" inline="true">
+                                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                <field name="FIELDNAME">3</field>
+                              </shadow>
+                            </value>
+                            <value name="Offset">
+                              <shadow type="field_slider" id="k{or}aWW00mg?IE#B?+v" inline="true">
+                                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                <field name="FIELDNAME">0</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="controls_whileUntilForever" id=";2xFM;lq:xh|_E=mEw#E">
+                                <field name="MODE">UNTIL</field>
+                                <value name="BOOL">
+                                  <shadow type="logic_boolean" id="y`w=t:w`aRZB@a/QvO|7">
+                                    <field name="BOOL">TRUE</field>
+                                  </shadow>
+                                  <block type="my_variables_compare_dynamic_boolean" id="g%!]FptwS1pM$_*V|7X9">
+                                    <mutation blockstyle="Boolean"></mutation>
+                                    <field name="VAR" id="0GL;V;P25Eys*zQ.ebV:" variabletype="Boolean">selected_flower</field>
+                                    <field name="operator">0</field>
+                                    <value name="VALUE">
+                                      <shadow type="logic_boolean" id="MxY5Vl_/zw|Mf,jp3-[/">
+                                        <field name="BOOL">TRUE</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="controls_if" id="5fd2)F(1]I?=9b79q80c">
+                                    <value name="IF0">
+                                      <shadow type="logic_boolean">
+                                        <field name="BOOL">TRUE</field>
+                                      </shadow>
+                                      <block type="telephony_compare" id="SDpM~ui1hJOop8PS3},9">
+                                        <field name="Mode">V2TCompare</field>
+                                        <field name="Lang">1</field>
+                                        <field name="operator">0</field>
+                                        <value name="threshold">
+                                          <shadow type="my_text" id="orPM3AZSN*.w:M}$YJKv">
+                                            <field name="TEXT">קקטוס</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="lcd_message" id="h]6T9;QqBe;J=50u!1*?">
+                                        <field name="Color">1</field>
+                                        <value name="TextInput">
+                                          <shadow type="my_text" id="(Re_hf1Vt9VtMIzNQvZZ" inline="true">
+                                            <field name="TEXT">בואו נלמד על קקטוס</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="run_link" id="=(v#yok$VowIV)).0V9x">
+                                            <value name="URLInput">
+                                              <shadow type="my_text" id="$G8hCG|w7-YBd7fV6Q^3">
+                                                <field name="TEXT">https://he.wikipedia.org/wiki/%D7%A6%D7%91%D7%A8%D7%99%D7%99%D7%9D</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="my_variables_set_dynamic" id="$nn*-+uCR%|-4#NKLLFU">
+                                                <mutation blockstyle="Boolean"></mutation>
+                                                <field name="VAR" id="0GL;V;P25Eys*zQ.ebV:" variabletype="Boolean">selected_flower</field>
+                                                <value name="VALUE">
+                                                  <shadow type="logic_boolean" id="AWZ]1|]r_Hmmm(kL+7#L">
+                                                    <field name="BOOL">TRUE</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="controls_if" id="osme^C$krH1=jE0gx{Ha">
+                                        <value name="IF0">
+                                          <shadow type="logic_boolean">
+                                            <field name="BOOL">TRUE</field>
+                                          </shadow>
+                                          <block type="telephony_compare" id="h74h#)jrrvH+dm.Y:%@x">
+                                            <field name="Mode">V2TCompare</field>
+                                            <field name="Lang">1</field>
+                                            <field name="operator">0</field>
+                                            <value name="threshold">
+                                              <shadow type="my_text" id="PIp1aN-{9vDtM|6$D]4I">
+                                                <field name="TEXT">כלנית</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="lcd_message" id="8a(vnhb}e7UjDRXB+*CE">
+                                            <field name="Color">1</field>
+                                            <value name="TextInput">
+                                              <shadow type="my_text" id="{d3K#MV^OO0(^A1yl1@N" inline="true">
+                                                <field name="TEXT">בואו נלמד על כלנית</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="run_link" id="db@;shp?,MQ4GjBJWz36">
+                                                <value name="URLInput">
+                                                  <shadow type="my_text" id="!J.`+jsH}kj)cllet.%o">
+                                                    <field name="TEXT">https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%A0%D7%99%D7%AA</field>
+                                                  </shadow>
+                                                </value>
+                                                <next>
+                                                  <block type="my_variables_set_dynamic" id="%BqJRKPXFV0I^JKGOnS}">
+                                                    <mutation blockstyle="Boolean"></mutation>
+                                                    <field name="VAR" id="0GL;V;P25Eys*zQ.ebV:" variabletype="Boolean">selected_flower</field>
+                                                    <value name="VALUE">
+                                                      <shadow type="logic_boolean" id="_cDCwOM|LJVt6KyO+.v:">
+                                                        <field name="BOOL">TRUE</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="controls_if" id="7+h9)kXU^!-cNY9dn;I=" inline="true">
+                                            <value name="IF0">
+                                              <shadow type="logic_boolean">
+                                                <field name="BOOL">TRUE</field>
+                                              </shadow>
+                                              <block type="telephony_compare" id="n@jh-2;[~I#OV?atmW$S">
+                                                <field name="Mode">V2TCompare</field>
+                                                <field name="Lang">1</field>
+                                                <field name="operator">0</field>
+                                                <value name="threshold">
+                                                  <shadow type="my_text" id="~Y88,[lr|kmwPKRZ@:wh" inline="true">
+                                                    <field name="TEXT">אחר</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="controls_if" id="H#=pmnxS:+M5DgL4Ho.J">
+                                                <value name="IF0">
+                                                  <shadow type="logic_boolean">
+                                                    <field name="BOOL">TRUE</field>
+                                                  </shadow>
+                                                  <block type="my_variables_get_dynamic" id="ri,XKG7K#g{gw]y4#:A,">
+                                                    <mutation blockstyle="Boolean"></mutation>
+                                                    <field name="VAR" id="nbb14Cf+.PUCH{L1pnjs" variabletype="Boolean">once</field>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="clear_component" id="xUWDnkf8~Lxv86{;Ncq~">
+                                                    <field name="component">12</field>
+                                                    <next>
+                                                      <block type="my_variables_set_dynamic" id="6=As;X2-32SEKj*La;)$">
+                                                        <mutation blockstyle="Boolean"></mutation>
+                                                        <field name="VAR" id="nbb14Cf+.PUCH{L1pnjs" variabletype="Boolean">once</field>
+                                                        <value name="VALUE">
+                                                          <shadow type="logic_boolean" id="M,n8Qb^hw:qC}9`dVV0=" inline="true">
+                                                            <field name="BOOL">FALSE</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="lcd_message" id="0^FQYl66R$_FYwTEEGMc">
+                                                    <field name="Color">0</field>
+                                                    <value name="TextInput">
+                                                      <shadow type="my_text" id="Q]x;n.XYn6i/Q*OIP2|;" inline="true">
+                                                        <field name="TEXT">שם הצמח: </field>
+                                                      </shadow>
+                                                    </value>
+                                                    <next>
+                                                      <block type="adv_virtual_sensor_wait" id="AuEEFH|_Z+?tEuLS2R4A">
+                                                        <field name="Sensor">alphanumeric_wait</field>
+                                                        <field name="operator">2</field>
+                                                        <next>
+                                                          <block type="my_variables_set_dynamic" id="uQl2qM*c^(Mn#DQ;QqCb">
+                                                            <mutation blockstyle="String"></mutation>
+                                                            <field name="VAR" id="w~!x4S7(~XDKD(ZPkZQn" variabletype="String">new_plant_name</field>
+                                                            <value name="VALUE">
+                                                              <shadow type="my_text">
+                                                                <field name="TEXT"></field>
+                                                              </shadow>
+                                                              <block type="adv_virtual_sensor_measure" id="{CSl=FO?rH%G+kcCupo)">
+                                                                <field name="Sensor">alphanumeric_measure</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="clear_component" id="yrT`0:n?ZzJ46o#.L,hL">
+                                                                <field name="component">12</field>
+                                                                <next>
+                                                                  <block type="lcd_message" id="q!x)NAGPjAtHeI`8MAYW">
+                                                                    <field name="Color">0</field>
+                                                                    <value name="TextInput">
+                                                                      <shadow type="my_text" id="(+u7YI?9{ezHi?hWp.{R" inline="true">
+                                                                        <field name="TEXT">הדבק את הקישור : </field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="adv_virtual_sensor_wait" id="@Kn`*0_[IDXZ]l?dlIQJ">
+                                                                        <field name="Sensor">alphanumeric_wait</field>
+                                                                        <field name="operator">2</field>
+                                                                        <next>
+                                                                          <block type="lcd_message" id="UkbL`*{0yktpcw|dn~fC">
+                                                                            <field name="Color">1</field>
+                                                                            <value name="TextInput">
+                                                                              <shadow type="my_text" inline="true">
+                                                                                <field name="TEXT"></field>
+                                                                              </shadow>
+                                                                              <block type="text_join" id="$~/4gHkz+gP?fu|!T{K.">
+                                                                                <mutation items="2"></mutation>
+                                                                                <value name="ADD0">
+                                                                                  <shadow type="my_text" id="ZMhv]G^R+$f|BZ(MuK/i">
+                                                                                    <field name="TEXT">בואו נלמד על</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <value name="ADD1">
+                                                                                  <shadow type="my_text">
+                                                                                    <field name="TEXT"></field>
+                                                                                  </shadow>
+                                                                                  <block type="my_variables_get_dynamic" id="qB)Nnspkp;0Bht$eQ:|)">
+                                                                                    <mutation blockstyle="String"></mutation>
+                                                                                    <field name="VAR" id="w~!x4S7(~XDKD(ZPkZQn" variabletype="String">new_plant_name</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="run_link" id="mZxOMthsi0cI)18!I#yY">
+                                                                                <value name="URLInput">
+                                                                                  <shadow type="my_text">
+                                                                                    <field name="TEXT">https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%A0%D7%99%D7%AA</field>
+                                                                                  </shadow>
+                                                                                  <block type="adv_virtual_sensor_measure" id="a]wS]*U:lNj1{@);VW4/">
+                                                                                    <field name="Sensor">alphanumeric_measure</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="procedures_callnoreturn" id="xy]1UxkLf;E(%$5]t?ZY">
+                                                                                    <mutation name="הגדרת תנאים מומלצים">
+                                                                                      <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                    </mutation>
+                                                                                    <next>
+                                                                                      <block type="my_variables_set_dynamic" id="vuuuOP~a{_8`@b}Fa-u0">
+                                                                                        <mutation blockstyle="Boolean"></mutation>
+                                                                                        <field name="VAR" id="0GL;V;P25Eys*zQ.ebV:" variabletype="Boolean">selected_flower</field>
+                                                                                        <value name="VALUE">
+                                                                                          <shadow type="logic_boolean" id="f]W9IQN|]8%@A3*?4Suj">
+                                                                                            <field name="BOOL">TRUE</field>
+                                                                                          </shadow>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="_h{k=cJhybJ?WSD*)*D`" x="-2685" y="-855">
+    <mutation>
+      <arg name="path to min" type="String"></arg>
+      <arg name="path to max" type="String"></arg>
+      <image src="/static/images/PolyGroup_000_MyBlockRed_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/PolyGroup_000_MyBlockRed_Diagram.png</field>
+    <field name="NAME">הגדרת מינמום ומקסימום למדידות</field>
+    <value name="ARG0">
+      <shadow type="argument_reporter_number" id="^Cb:lLQEZ5}mAlS@Ll+G">
+        <mutation blockstyle="String"></mutation>
+        <field name="VALUE">path to min</field>
+      </shadow>
+    </value>
+    <value name="ARG1">
+      <shadow type="argument_reporter_number" id="Csjy3=]~p,f)+^;w)zue">
+        <mutation blockstyle="String"></mutation>
+        <field name="VALUE">path to max</field>
+      </shadow>
+    </value>
+    <statement name="STACK">
+      <block type="controls_whileUntilForever" id="H$C/T4XXMg?YLfSA|0P+">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="compare_timer" id="|5dtX3glrz7lWl%L={BY">
+            <field name="Timer">0</field>
+            <field name="operator">5</field>
+            <value name="threshold">
+              <shadow type="math_number" id="1Lyo4n3is@a]6Oj0$VQ]" inline="true">
+                <field name="NUM">600</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="lcd_text" id="S-8/|(dw8Di?Y@BYF?OJ">
+            <field name="Color">2</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">נתחיל במדידה ראשונה:</field>
+              </shadow>
+              <block type="text_join" id="r4v13h.vS[TedsWaRfIv">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="BZ0DqkAt$)#0{;#uY?]E" inline="true">
+                    <field name="TEXT">טמפרטורה= </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="read_DB" id="`CD;?69UKRIVy-vS-``X">
+                    <value name="Key">
+                      <shadow type="my_text" id="*ta?|2qPyO3=VNzzM27!" inline="true">
+                        <field name="TEXT">tempreture</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="5%).$;h@,cD(c(SADi/p" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">1</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="vtZ;K]unY#cUYZ[lLSVr" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">5</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="lcd_text" id="xv4#J-6rlW_=v:Qv$M4!">
+                <field name="Color">2</field>
+                <value name="TextInput">
+                  <shadow type="my_text">
+                    <field name="TEXT">3. כלנית</field>
+                  </shadow>
+                  <block type="text_join" id="A+NH#wI:}v?UeEz4jGi@">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <shadow type="my_text" id="!PUBS/%37gN3MVcom7y8" inline="true">
+                        <field name="TEXT">לחות אדמה= </field>
+                      </shadow>
+                    </value>
+                    <value name="ADD1">
+                      <shadow type="my_text">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="read_DB" id="t`{~bI,/e[qvJs+)Dm05">
+                        <value name="Key">
+                          <shadow type="my_text" id="66SHBujJ,mFfeEg%9l(`" inline="true">
+                            <field name="TEXT"> soil_moisture_percent</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="LineNumber">
+                  <shadow type="field_slider" id="Tx9vm3siTwpT,=Nz(bw}" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                    <field name="FIELDNAME">2</field>
+                  </shadow>
+                </value>
+                <value name="Offset">
+                  <shadow type="field_slider" id="Icw,pSjdH][r6YFYzw@/" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                    <field name="FIELDNAME">4</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="lcd_text" id="FqtklzAk^fUOqB-13zlJ">
+                    <field name="Color">2</field>
+                    <value name="TextInput">
+                      <shadow type="my_text">
+                        <field name="TEXT">3. כלנית</field>
+                      </shadow>
+                      <block type="text_join" id="{F18K?/_hh@d.xQLGj^o">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <shadow type="my_text" id="e~2M@Zd-FdOG_M6RUPV_" inline="true">
+                            <field name="TEXT">לחות= </field>
+                          </shadow>
+                        </value>
+                        <value name="ADD1">
+                          <shadow type="my_text">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="read_DB" id="5j*$dp3(I+o!KO]hfeAf">
+                            <value name="Key">
+                              <shadow type="my_text" id="+1RG*,IG?_!7;7S;T!l." inline="true">
+                                <field name="TEXT">humidity</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="LineNumber">
+                      <shadow type="field_slider" id="dz|JTSBy0mUZ!xrPP{vw" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                        <field name="FIELDNAME">3</field>
+                      </shadow>
+                    </value>
+                    <value name="Offset">
+                      <shadow type="field_slider" id=":aoG(y}/}glMMcqU?*(|" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                        <field name="FIELDNAME">7</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="lcd_message" id="0,wWJ})2^9EGK[~=DGaF">
+            <field name="Color">1</field>
+            <value name="TextInput">
+              <shadow type="my_text" id="6N8o7dX%G1YAe_!)_#$|" inline="true">
+                <field name="TEXT">מה הערך המינימלי שקיבלתם?</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="adv_virtual_sensor_wait" id="_+t?EfFE745K2S]X(Hs,">
+                <field name="Sensor">alphanumeric_wait</field>
+                <field name="operator">2</field>
+                <next>
+                  <block type="write_DB" id="%t0PwKII!SOS-0WkpvHq">
+                    <field name="input_type">1</field>
+                    <value name="Value">
+                      <shadow type="my_text" id="#yKMBGx{6+f9pq5.m[3C">
+                        <field name="TEXT">Value</field>
+                      </shadow>
+                      <block type="adv_virtual_sensor_measure" id=";?#u]JjIM3u~3r4A~%pu">
+                        <field name="Sensor">alphanumeric_measure</field>
+                      </block>
+                    </value>
+                    <value name="Key">
+                      <shadow type="my_text" id="AG9a=`I%PGyth7tbT]j]">
+                        <field name="TEXT">path to min</field>
+                      </shadow>
+                      <block type="argument_reporter_number" id="W/j=[U`*kfz2,R0OI17j">
+                        <mutation blockstyle="String"></mutation>
+                        <field name="VALUE">path to min</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_message" id="EPu3jCC|M{7ZDa+=01/|">
+                        <field name="Color">1</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="H?QV@@q|F|}R|wJM_@Lh" inline="true">
+                            <field name="TEXT">מה הערך המקסימלי שקיבלתם?</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="adv_virtual_sensor_wait" id="7eKKeRjsJ=A07ufF9oH|">
+                            <field name="Sensor">alphanumeric_wait</field>
+                            <field name="operator">2</field>
+                            <next>
+                              <block type="write_DB" id="#teXqw+9eqmX4M%6D|Fj">
+                                <field name="input_type">1</field>
+                                <value name="Value">
+                                  <shadow type="my_text" id="=fu`+K`yPv/Z)(N5XdWg">
+                                    <field name="TEXT">Value</field>
+                                  </shadow>
+                                  <block type="adv_virtual_sensor_measure" id="EFGe^MjO3N=d7@ae[-$?">
+                                    <field name="Sensor">alphanumeric_measure</field>
+                                  </block>
+                                </value>
+                                <value name="Key">
+                                  <shadow type="my_text" id="fXFyAX9}2pX9tT}rTEEc">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="argument_reporter_number" id="=h#Jrk:Dre#CC}AgxW[R">
+                                    <mutation blockstyle="String"></mutation>
+                                    <field name="VALUE">path to max</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_message" id="?0@QZ!2B`!U65en!aU,1">
+                                    <field name="Color">1</field>
+                                    <value name="TextInput">
+                                      <shadow type="my_text">
+                                        <field name="TEXT">מה הערך המינימלי שקיבלתם?</field>
+                                      </shadow>
+                                      <block type="text_join" id="abus;cBDsvH!8ZIC]h-b">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <shadow type="my_text" id="+SW8Vp/6i,fTrgGcsgt4" inline="true">
+                                            <field name="TEXT">הערך המקסימלי</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="ADD1">
+                                          <shadow type="my_text">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="adv_virtual_sensor_measure" id="DHy5h3H4bn:t69QpO*J1">
+                                            <field name="Sensor">alphanumeric_measure</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="clearscreen" id="7hhu$.E,-b=fiq1$}j4{">
+                                        <next>
+                                          <block type="reset_timer" id=")Q^Y]o7C8:|xcjEiVg9:">
+                                            <field name="Timer">0</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="YX79=({9=tIT^6+46j9b" x="-2685" y="105">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">הגדרת תנאים מומלצים</field>
+    <statement name="STACK">
+      <block type="lcd_message" id="r.|3+e,KWaB%Zb0ju/dt">
+        <field name="Color">0</field>
+        <value name="TextInput">
+          <shadow type="my_text" id="u#tq#9)fa4d8@(MQFbW@">
+            <field name="TEXT">נגדיר סוג האדמה האדידאלית</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="lcd_text" id="B9tiBn2m7@D5?P]#*=S6">
+            <field name="Color">2</field>
+            <value name="TextInput">
+              <shadow type="my_text" id="-![+/xs{/kKE|]cfqk25" inline="true">
+                <field name="TEXT">1- רטובה</field>
+              </shadow>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="b#fx^S,,g3T[.uxn8#Wq" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">1</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id=",`(}f?:eW.AwNVw,dZ}{" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="lcd_text" id="EL[{hZsDYAUn?+Z!/v+.">
+                <field name="Color">2</field>
+                <value name="TextInput">
+                  <shadow type="my_text" id="OV/=z+}nt?huV8?K51*5" inline="true">
+                    <field name="TEXT">2- בינוני</field>
+                  </shadow>
+                </value>
+                <value name="LineNumber">
+                  <shadow type="field_slider" id="Rt2?U}:$2Uvmo(q)#2^E" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                    <field name="FIELDNAME">2</field>
+                  </shadow>
+                </value>
+                <value name="Offset">
+                  <shadow type="field_slider" id="C1z~H9mUgE:B!Xspp,f9" inline="true">
+                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                    <field name="FIELDNAME">0</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="lcd_text" id="`a8#1YOhn)nDJD6dD{,-">
+                    <field name="Color">2</field>
+                    <value name="TextInput">
+                      <shadow type="my_text" id="Ri(XDNO/vOeaUP!/SxQ7" inline="true">
+                        <field name="TEXT">0- רטובה מאוד</field>
+                      </shadow>
+                    </value>
+                    <value name="LineNumber">
+                      <shadow type="field_slider" id="DFiR^VR91-H-{V/cuh!N" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                        <field name="FIELDNAME">0</field>
+                      </shadow>
+                    </value>
+                    <value name="Offset">
+                      <shadow type="field_slider" id="DyY_ZJpFH.2K7Zcw5whD" inline="true">
+                        <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                        <field name="FIELDNAME">0</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="lcd_text" id="MY:i%2KNkn}EEVVvp2)$">
+                        <field name="Color">2</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id="vfr_8)}8]gevY8-~o2@=" inline="true">
+                            <field name="TEXT">3- יבשה</field>
+                          </shadow>
+                        </value>
+                        <value name="LineNumber">
+                          <shadow type="field_slider" id="y!%-qO`J)KqywK40-^*;" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                            <field name="FIELDNAME">3</field>
+                          </shadow>
+                        </value>
+                        <value name="Offset">
+                          <shadow type="field_slider" id="hx7yV5ole8*}vdxsHBkg" inline="true">
+                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                            <field name="FIELDNAME">0</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="adv_virtual_sensor_wait" id="G%D[xb}a)nC]ChY#?`,p">
+                            <field name="Sensor">alphanumeric_wait</field>
+                            <field name="operator">2</field>
+                            <next>
+                              <block type="write_DB" id="3HwV+ocJ;r~etn{Woa+c">
+                                <field name="input_type">1</field>
+                                <value name="Value">
+                                  <shadow type="my_text">
+                                    <field name="TEXT">Value</field>
+                                  </shadow>
+                                  <block type="adv_virtual_sensor_measure" id="D|klmm0[WWf)a8F!XX2H">
+                                    <field name="Sensor">alphanumeric_measure</field>
+                                  </block>
+                                </value>
+                                <value name="Key">
+                                  <shadow type="my_text" id="cQPJk_vCp:fz2of6}nr0">
+                                    <field name="TEXT">Recommended_soil_moist</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="clearscreen" id="dWR|2XaPCdGGN)yQKpc$">
+                                    <next>
+                                      <block type="lcd_text" id="WTHa;y5c}SYT,walUB2d">
+                                        <field name="Color">0</field>
+                                        <value name="TextInput">
+                                          <shadow type="my_text" id=")^d1n?s:|=lyLX.Ah:.-">
+                                            <field name="TEXT">נגדיר טווח טמפרטורה אידיאלי</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="LineNumber">
+                                          <shadow type="field_slider" id="d-7~cg5B~=PKGB)$P`;C">
+                                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                            <field name="FIELDNAME">0</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="Offset">
+                                          <shadow type="field_slider" id=",uNF^+j6C;=YSe3T,^2b">
+                                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                            <field name="FIELDNAME">0</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_text" id="(0o!Mc+W)K.Xi%=RC%lZ">
+                                            <field name="Color">0</field>
+                                            <value name="TextInput">
+                                              <shadow type="my_text" id="`rfMNA?elqYaQJ7g6lie">
+                                                <field name="TEXT">מהו הערך המינמלי?</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="LineNumber">
+                                              <shadow type="field_slider" id="8MY=II6^tCyL-U{!zkw@">
+                                                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                <field name="FIELDNAME">1</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="Offset">
+                                              <shadow type="field_slider" id="rMLi~ZCP2#^6C5yuOv}U">
+                                                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                <field name="FIELDNAME">0</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="adv_virtual_sensor_wait" id="EHzbcTn!5L8-uz.9bn9X">
+                                                <field name="Sensor">alphanumeric_wait</field>
+                                                <field name="operator">2</field>
+                                                <next>
+                                                  <block type="write_DB" id="W+5DbmU{cN;H[E4;$A!V">
+                                                    <field name="input_type">1</field>
+                                                    <value name="Value">
+                                                      <shadow type="my_text">
+                                                        <field name="TEXT">Value</field>
+                                                      </shadow>
+                                                      <block type="adv_virtual_sensor_measure" id="rZOa#fGpe2KH=89O+mjc">
+                                                        <field name="Sensor">alphanumeric_measure</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="Key">
+                                                      <shadow type="my_text" id="txg%|m+CiwE7pQ%Y6Ob[">
+                                                        <field name="TEXT">OptimalConditions/Recommended_temperature/min</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <next>
+                                                      <block type="lcd_text" id=",MI]D;:;3:rokU/4X~!/">
+                                                        <field name="Color">0</field>
+                                                        <value name="TextInput">
+                                                          <shadow type="my_text" id="K}iw0;xGTo7O9+tlx/Ju">
+                                                            <field name="TEXT">מהו הערך המקסימלי?</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <value name="LineNumber">
+                                                          <shadow type="field_slider" id="J0~?}fx%+Dl2Vne8A5nE">
+                                                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                            <field name="FIELDNAME">1</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <value name="Offset">
+                                                          <shadow type="field_slider" id="of=0T)4c~.jUnR@m|vPR">
+                                                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                            <field name="FIELDNAME">0</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <next>
+                                                          <block type="adv_virtual_sensor_wait" id="b9YO(pBf5ZNH`Ti7~jy{">
+                                                            <field name="Sensor">alphanumeric_wait</field>
+                                                            <field name="operator">2</field>
+                                                            <next>
+                                                              <block type="my_variables_set_dynamic" id="icn2TdJ/0XN,2Mnn]%G#">
+                                                                <mutation blockstyle="Number"></mutation>
+                                                                <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                                                                <value name="VALUE">
+                                                                  <shadow type="math_number" id="A%Q7{RfPAdH=p8$c)QrN">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="write_DB" id="5WSdxm91vX1Dwh7@w!XM">
+                                                                    <field name="input_type">1</field>
+                                                                    <value name="Value">
+                                                                      <shadow type="my_text">
+                                                                        <field name="TEXT">Value</field>
+                                                                      </shadow>
+                                                                      <block type="adv_virtual_sensor_measure" id=":JYS/Ytmtz!{Qz7{g+0k">
+                                                                        <field name="Sensor">alphanumeric_measure</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="Key">
+                                                                      <shadow type="my_text" id="^4/wxy?RudRCq?FQgG6b">
+                                                                        <field name="TEXT">OptimalConditions/Recommended_temperature/max   </field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="clearscreen" id="+hVPT1O$tKCm%G|lq/kJ">
+                                                                        <next>
+                                                                          <block type="lcd_text" id="a*Af:(2e8ues@u~kC=JZ">
+                                                                            <field name="Color">0</field>
+                                                                            <value name="TextInput">
+                                                                              <shadow type="my_text" id="1.#-)wKtm+BC8V0ju/wb">
+                                                                                <field name="TEXT">נגדיר טווח לחות האוויר אידיאלי</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="LineNumber">
+                                                                              <shadow type="field_slider" id="GaB:ak=Ez$VJ+9)1iS#z">
+                                                                                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                                                <field name="FIELDNAME">0</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="Offset">
+                                                                              <shadow type="field_slider" id="5z$;r|}+qPq=_zDs]m}B">
+                                                                                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                                                <field name="FIELDNAME">0</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="lcd_text" id="q#o|CC_;3iL0pMV_6+A@">
+                                                                                <field name="Color">0</field>
+                                                                                <value name="TextInput">
+                                                                                  <shadow type="my_text" id="%F|r[mb#K-R9]jktchT0">
+                                                                                    <field name="TEXT">מהו הערך המינמלי?</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <value name="LineNumber">
+                                                                                  <shadow type="field_slider" id="f5z.Qu-j4sJgr^BUmk%{">
+                                                                                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                                                    <field name="FIELDNAME">1</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <value name="Offset">
+                                                                                  <shadow type="field_slider" id="]AP{e84Fo,=0x5a5K07Z">
+                                                                                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                                                    <field name="FIELDNAME">0</field>
+                                                                                  </shadow>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="adv_virtual_sensor_wait" id="M`M0FbO_!y+@/s$:@yJk">
+                                                                                    <field name="Sensor">alphanumeric_wait</field>
+                                                                                    <field name="operator">2</field>
+                                                                                    <next>
+                                                                                      <block type="write_DB" id="_``A|z(DAPiY.a%/to:C">
+                                                                                        <field name="input_type">1</field>
+                                                                                        <value name="Value">
+                                                                                          <shadow type="my_text">
+                                                                                            <field name="TEXT">Value</field>
+                                                                                          </shadow>
+                                                                                          <block type="adv_virtual_sensor_measure" id="TZ$T04}0ZWI)q1-pAj_]">
+                                                                                            <field name="Sensor">alphanumeric_measure</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="Key">
+                                                                                          <shadow type="my_text" id="/`C1;kNgk*z@YTptUwk7">
+                                                                                            <field name="TEXT">OptimalConditions/Recommended_humidity /min</field>
+                                                                                          </shadow>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="my_variables_set_dynamic" id="7-u+gZ$vEVR.x[3}i(Co">
+                                                                                            <mutation blockstyle="Number"></mutation>
+                                                                                            <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                                                                                            <value name="VALUE">
+                                                                                              <shadow type="math_number" id="92-b@iG1AIk$uO+2`]|w">
+                                                                                                <field name="NUM">0</field>
+                                                                                              </shadow>
+                                                                                            </value>
+                                                                                            <next>
+                                                                                              <block type="lcd_text" id="O;U?[ccA+J5Uiidio^/k">
+                                                                                                <field name="Color">0</field>
+                                                                                                <value name="TextInput">
+                                                                                                  <shadow type="my_text" id="A7x@j9M8;]B)BWKFZfDt">
+                                                                                                    <field name="TEXT">מהו הערך המקסימלי?</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                                <value name="LineNumber">
+                                                                                                  <shadow type="field_slider" id="8]i0sTv1M(n44PO%;kKu">
+                                                                                                    <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                                                                                    <field name="FIELDNAME">1</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                                <value name="Offset">
+                                                                                                  <shadow type="field_slider" id="C`M*;1rT@]V|ov`IRBg]">
+                                                                                                    <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                                                                                    <field name="FIELDNAME">0</field>
+                                                                                                  </shadow>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="adv_virtual_sensor_wait" id="QKk9C7z!}h7B-/7%`7!Z">
+                                                                                                    <field name="Sensor">alphanumeric_wait</field>
+                                                                                                    <field name="operator">2</field>
+                                                                                                    <next>
+                                                                                                      <block type="write_DB" id="=N,$2c*9VQMr,3M.-%U:">
+                                                                                                        <field name="input_type">1</field>
+                                                                                                        <value name="Value">
+                                                                                                          <shadow type="my_text">
+                                                                                                            <field name="TEXT">Value</field>
+                                                                                                          </shadow>
+                                                                                                          <block type="adv_virtual_sensor_measure" id="o$-4[Lrg~(~I4Y*ZL:,#">
+                                                                                                            <field name="Sensor">alphanumeric_measure</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <value name="Key">
+                                                                                                          <shadow type="my_text" id="b#pS$/UGLLE}b}LZ]AC3">
+                                                                                                            <field name="TEXT">OptimalConditions/Recommended_humidity /max</field>
+                                                                                                          </shadow>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="clearscreen" id="L8q6XW;hE/*=IC_]U/L6">
+                                                                                                            <next>
+                                                                                                              <block type="procedures_callnoreturn" id="ku}CG5C5kjq1APF2qCxN">
+                                                                                                                <mutation name="הגדרת שיקלול">
+                                                                                                                  <image src="/static/images/IRControl_Diagram.png"></image>
+                                                                                                                </mutation>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="1aFR_iJ`jpHG;tU%AEe!" x="1695" y="195">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">הדפסת לחות אדמה</field>
+    <statement name="STACK">
+      <block type="controls_if" id="b-j{O]T_poX%q)|zv{wb">
+        <mutation elseif="0" else="1"></mutation>
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="logic_compare" id="E6W3.4mdasFR5FxD,6FE">
+            <field name="OP">LT</field>
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">20</field>
+              </shadow>
+              <block type="read_DB" id="9pY6(tv;M9(86aA/My1j">
+                <value name="Key">
+                  <shadow type="my_text" id="(ZHIA(fC2UA}Y}yvpkbV" inline="true">
+                    <field name="TEXT">soil_moisture</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">60</field>
+              </shadow>
+              <block type="my_variables_get_dynamic" id="J$_QbJC(H4Gf|1wup_nh">
+                <mutation blockstyle="Number"></mutation>
+                <field name="VAR" id="0.Bi,?tPdhcQy}7Pej@." variabletype="Number">soil_moisture_dry_min</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="lcd_message" id=")J_zY/D#SMHC~5_EMQzu">
+            <field name="Color">0</field>
+            <value name="TextInput">
+              <shadow type="my_text" id="%ari-z5Hrt-Myj?K7GLt">
+                <field name="TEXT">האדמה יבשה, מערכת ההשקייה הופעלה.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="texttovoice" id="0yZp4*;6M^#rdCT[8k8p">
+                <field name="Lang">1</field>
+                <field name="Flag">0</field>
+                <value name="TextInput">
+                  <shadow type="my_text" id="wPk}Nx+2.FXN1:V}-.w5">
+                    <field name="TEXT">האדמה יבשה, מערכת ההשקייה הופעלה.</field>
+                  </shadow>
+                </value>
+                <value name="Volume">
+                  <shadow type="field_slider" id="OvPG{B3B1)oG5i*u1~i[">
+                    <mutation color="#7070ff" min="0" max="100"></mutation>
+                    <field name="FIELDNAME">100</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="showImage" id="Vx0!4}yNLulZJWTzN/fv">
+                    <field name="image">waterlevel0</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="lcd_text" id="my?RB0FgP6BQH1EV7-@y">
+            <field name="Color">2</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">2- tempreture</field>
+              </shadow>
+              <block type="text_join" id="SOG;loljU[yVWx8L:oFe">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="|Nx%T-|oOo0,ps1Ybibc" inline="true">
+                    <field name="TEXT">3- לחות האדמה: </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="read_DB" id="9+UU_d{~(M)206Z)B-.=">
+                    <value name="Key">
+                      <shadow type="my_text" id="b{4]O}`{%rZK,L[!`cp," inline="true">
+                        <field name="TEXT">soil_moisture</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="Ac|wm=RD#DeujR9WWQbO" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">3</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="M_5pg,9iJy^RZvlgp83+" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="[x;iG[Oa)R$C^|Pv4S%L" x="-3675" y="765">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">הגדרת שיקלול</field>
+    <statement name="STACK">
+      <block type="lcd_message" id="aY(j3S)qkvyGJs):@V:N">
+        <field name="Color">0</field>
+        <value name="TextInput">
+          <shadow type="my_text" id="9d93=OAj6CQ:eo!zy{eq">
+            <field name="TEXT">נגדיר שיקלול לערכים שלנן</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="lcd_text" id="rg6nBhG*|5kHVrd0O|^+">
+            <field name="Color">0</field>
+            <value name="TextInput">
+              <shadow type="my_text" id=".U+ylF4p%mcu~WWr6vC/">
+                <field name="TEXT">מה המשקל של חיישן הלחות באדמה?</field>
+              </shadow>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="=~?cJ=WD*54,8*73$$|M">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">1</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="b!IHre)MW$j*Fyfw7eWo">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="adv_virtual_sensor_wait" id="D{}3Fcl%Z22C:L8yf-$y">
+                <field name="Sensor">alphanumeric_wait</field>
+                <field name="operator">2</field>
+                <next>
+                  <block type="my_variables_set_dynamic" id="b2P)?aF5:HMiz#%n59ar">
+                    <mutation blockstyle="Number"></mutation>
+                    <field name="VAR" id="?CP/K3l7Ikek9ro/JE8}" variabletype="Number">soil_moisture_weight</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="[DNITu-bz_uA|_Eg9)_?">
+                        <field name="NUM">0</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="lcd_text" id="Ikkyt!BG]e$bkC9c=is)">
+                        <field name="Color">0</field>
+                        <value name="TextInput">
+                          <shadow type="my_text" id=")5;AM8Qe+k~Oq=Q9C^Wm">
+                            <field name="TEXT">מה המשקל של חיישן הלחות באוויר?</field>
+                          </shadow>
+                        </value>
+                        <value name="LineNumber">
+                          <shadow type="field_slider" id="#eVK6CS4YDvm5tm}Bp}1">
+                            <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                            <field name="FIELDNAME">1</field>
+                          </shadow>
+                        </value>
+                        <value name="Offset">
+                          <shadow type="field_slider" id="T-wcUDojwVKWudyi+E^W">
+                            <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                            <field name="FIELDNAME">0</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="adv_virtual_sensor_wait" id="oi6ZD:)!NC:k[67N%v3q">
+                            <field name="Sensor">alphanumeric_wait</field>
+                            <field name="operator">2</field>
+                            <next>
+                              <block type="my_variables_set_dynamic" id="$LD]$LV+u./!Y,ONwGUk">
+                                <mutation blockstyle="Number"></mutation>
+                                <field name="VAR" id=",Tt@kdh7I{xDOgu4=)3s" variabletype="Number">humidity_weight</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number" id="6b~g1#pl+Nn)s8T8N[%M">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="lcd_text" id="k-D0$X7b$vS9LCw.)6Qg">
+                                    <field name="Color">0</field>
+                                    <value name="TextInput">
+                                      <shadow type="my_text" id="r+rXA8wbF6/)m=D;[)?y">
+                                        <field name="TEXT">מה המשקל של חיישן טמפרטורה?</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="LineNumber">
+                                      <shadow type="field_slider" id="uj/G;PW}jSmU(zNU(+G~">
+                                        <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                                        <field name="FIELDNAME">1</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="Offset">
+                                      <shadow type="field_slider" id="wKC|n11UMRZu`d}|A(/d">
+                                        <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                                        <field name="FIELDNAME">0</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="adv_virtual_sensor_wait" id="#VexmD9*)e8TQKd,p^/2">
+                                        <field name="Sensor">alphanumeric_wait</field>
+                                        <field name="operator">2</field>
+                                        <next>
+                                          <block type="my_variables_set_dynamic" id="$G_X0!2Hc](/+ebQ[]*`">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="BgpLylK4K))Xr-=KNd{G" variabletype="Number">tempreture_weight</field>
+                                            <value name="VALUE">
+                                              <shadow type="math_number" id="`Xb-}?Iu1Q6,s=#1VmZa">
+                                                <field name="NUM">0</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="adv_virtual_sensor_measure" id="t@5Nq:=ZBXNpCk;`OqKm" disabled="true" x="-3105" y="975">
+    <field name="Sensor">alphanumeric_measure</field>
+  </block>
+  <block type="procedures_defnoreturn" id="-zdrf=Gw~!oG(DWTCEzE" x="-1215" y="945">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">הדפסת לחות אוויר</field>
+    <statement name="STACK">
+      <block type="controls_if" id="$|`JPsm*f%,4-wWpuGZC">
+        <mutation elseif="0" else="1"></mutation>
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="logic_compare" id="y$}NcPx8zqO_uFcwR-1g">
+            <field name="OP">LT</field>
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">20</field>
+              </shadow>
+              <block type="read_DB" id="]bq}CX7Am6{l_DXG1*z=">
+                <value name="Key">
+                  <shadow type="my_text" id="/)tm:EcA}9R0R]~z]#7{" inline="true">
+                    <field name="TEXT">humidity</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id=",9NtsW?/{lBp7bski1qj">
+                <field name="NUM">110</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="lcd_text" id="lT-33(*MtiQSMg4~ekB5">
+            <field name="Color">2</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">1- humidity: </field>
+              </shadow>
+              <block type="text_join" id="N#9.V$^CNAi(=K=MH-i^">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="inZ-%:Fv!AobZZHFxCUZ" inline="true">
+                    <field name="TEXT">1- לחות: </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="read_DB" id="Ryl,KB=AFdKUW1=NxLof">
+                    <value name="Key">
+                      <shadow type="my_text" id=")2kqsm]]rtyeVoE[Cejk" inline="true">
+                        <field name="TEXT">humidity</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="yFtB@24Ip23=G=4,RT)d" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">1</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="guR9nq{D#3*N!b5_,}C," inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="lcd_text" id="!Pp$OuHYQ]y;iZ%m0OD*">
+            <field name="Color">0</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">1- humidity: </field>
+              </shadow>
+              <block type="text_join" id="Z1G?`ShOeb|Gw`zb`$NZ">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="2%3?9`+5=}taC=dcW}WF" inline="true">
+                    <field name="TEXT">1- לחות: </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text" id="a=h1Na5AOD=W8_(8Xc_W">
+                    <field name="TEXT">Error, check the sensor!</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="l6M(P[^be4I}tpSsARd~" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">1</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="IkoT+fX[!ut:$=(9V]a=" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="AFMzy}^Q0dbWl7A,SVU1" x="1125" y="855">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">הדפסת טמפרטורה</field>
+    <statement name="STACK">
+      <block type="controls_if" id=",:O*U!|[upjZI)OzR)jY">
+        <mutation elseif="0" else="1"></mutation>
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="logic_compare" id="l|J1w4P/gw$*(iasDVni">
+            <field name="OP">LT</field>
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">20</field>
+              </shadow>
+              <block type="read_DB" id="$*#t|1=0p:-qbe:?msy+">
+                <value name="Key">
+                  <shadow type="my_text" id="2OjT^WD[H`4i7/$5A.^)" inline="true">
+                    <field name="TEXT">tempreture</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id="2O(H`muGH1q@GQOhk|{H">
+                <field name="NUM">60</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="lcd_text" id="8!XwDNv`68j(bplj00gx">
+            <field name="Color">2</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">2- tempreture</field>
+              </shadow>
+              <block type="text_join" id="FXOwt7oZxE.^,)YO+fdZ">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="n4s$:c9qn[_HAKCAnrlI" inline="true">
+                    <field name="TEXT">2- טמפרטורה: </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="read_DB" id="E:{q-0q]sCa2j4D,.1x:">
+                    <value name="Key">
+                      <shadow type="my_text" id="%B5Cet]Ui6K)YFNY^u#5" inline="true">
+                        <field name="TEXT">tempreture</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="O~6tk*3IkM]NtJ2fl~?)" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">2</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="j8~h+TK=$UpP=SwPZF3:" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="lcd_text" id="*)FA,*+dQ{D73*hL@cC}">
+            <field name="Color">0</field>
+            <value name="TextInput">
+              <shadow type="my_text">
+                <field name="TEXT">1- humidity: </field>
+              </shadow>
+              <block type="text_join" id="jF=*T^@7{C!Em5y(DfD6">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <shadow type="my_text" id="UsgBS__EmPz=,:[CUh{V" inline="true">
+                    <field name="TEXT">2- טמפרטורה: </field>
+                  </shadow>
+                </value>
+                <value name="ADD1">
+                  <shadow type="my_text" id="vPpW:C8g1W,)782mbc?J">
+                    <field name="TEXT">Error, check the sensor!</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="LineNumber">
+              <shadow type="field_slider" id="z4o_PWf([Eb,LPpXZMox" inline="true">
+                <mutation color="#7aa7ff" min="0" max="3"></mutation>
+                <field name="FIELDNAME">2</field>
+              </shadow>
+            </value>
+            <value name="Offset">
+              <shadow type="field_slider" id="-^@Vj_HAB14JY%)%-.ag" inline="true">
+                <mutation color="#7aa7ff" min="0" max="19"></mutation>
+                <field name="FIELDNAME">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="adv_virtual_sensor_measure" id="zen);N!hJstl_~%XaIG6" disabled="true" x="-2295" y="1365">
+    <field name="Sensor">alphanumeric_measure</field>
+  </block>
+  <block type="procedures_defnoreturn" id="=R$J;*x0j9M0nPZb7(DZ" x="-1605" y="1485">
+    <mutation>
+      <image src="/static/images/IRControl_Diagram.png"></image>
+    </mutation>
+    <field name="macro_image">/static/images/IRControl_Diagram.png</field>
+    <field name="NAME">חישוב לגרף</field>
+    <statement name="STACK">
+      <block type="controls_whileUntilForever" id="j*Nj~q^8p7:5T1^c`jW?">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="compare_timer" id="hlvfPtFo@rWuNGw{DnYC">
+            <field name="Timer">0</field>
+            <field name="operator">5</field>
+            <value name="threshold">
+              <shadow type="math_number" id="71e1B4f|*NCsu3j-ZwRo">
+                <field name="NUM">10000</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="my_variables_set_dynamic" id="lymL(@f4*Wjs=I/%0n!|">
+            <mutation blockstyle="Number"></mutation>
+            <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+            <value name="VALUE">
+              <shadow type="math_number" id="z}uk{10{*BJkx/winZ7x">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="math_single" id="UY}UM(6w2;$8VdYa-|R]">
+                <field name="OP">ABS</field>
+                <value name="NUM">
+                  <shadow type="math_number" id="m]f4q-Zy{(I]+ZTPWRgL">
+                    <field name="NUM">9</field>
+                  </shadow>
+                  <block type="math_arithmetic" id="{uZAV}f;e+!UE`F{MuCX">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <shadow type="math_number" id="`KA;kT_wUR=%+-b%uXvR">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="read_DB" id="co-!w#:Z`c`{5]y]a(oy">
+                        <value name="Key">
+                          <shadow type="my_text" id="kQ]6@!Sk4J/Cld!Mtnc8" inline="true">
+                            <field name="TEXT">tempreture</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id="KnDQ}I53Rw*vndMMBDq.">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="my_variables_get_dynamic" id="FL$df~s:uz$2*^]8hqcu">
+                        <mutation blockstyle="Number"></mutation>
+                        <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="my_variables_set_dynamic" id="hMcAp#}^=76JgSCrGEMY">
+                <mutation blockstyle="Number"></mutation>
+                <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                <value name="VALUE">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="math_arithmetic" id="C}s63:Ra)2LKD][9XC/w">
+                    <field name="OP">DIVIDE</field>
+                    <value name="A">
+                      <shadow type="math_number" id="H(W@1[NUtz)88RT~CBkO">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="my_variables_get_dynamic" id="!gsyqVtY/)](v$K#uBa_">
+                        <mutation blockstyle="Number"></mutation>
+                        <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id="VQB=qVRizA6C=)1)`_wK">
+                        <field name="NUM">50</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="my_variables_set_dynamic" id="WGBL_HdV.K$ehbe?-@]`">
+                    <mutation blockstyle="Number"></mutation>
+                    <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="=vX3|]%:-5[]wKT@YG0c">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_single" id="/,z,q:.`;/X1I5mSS9Mu">
+                        <field name="OP">ABS</field>
+                        <value name="NUM">
+                          <shadow type="math_number" id="5aY5.v)Vr+7D8S75kp;e">
+                            <field name="NUM">9</field>
+                          </shadow>
+                          <block type="math_arithmetic" id="SQh9aFt_#VLG*qNohrWY">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <shadow type="math_number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="read_DB" id="9)If_ot2%dpw=L=v9Nx/">
+                                <value name="Key">
+                                  <shadow type="my_text" id="#D(!02;FWAl%{FRo2LsK" inline="true">
+                                    <field name="TEXT">humidity</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="math_number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="my_variables_get_dynamic" id="[QY5I6NH/,n1e)l!VzL%">
+                                <mutation blockstyle="Number"></mutation>
+                                <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="my_variables_set_dynamic" id=",EB,cD(W;{!TB1#JA;uF">
+                        <mutation blockstyle="Number"></mutation>
+                        <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                        <value name="VALUE">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="math_arithmetic" id="v=a:}C?22ZG?~MJ%w}6G">
+                            <field name="OP">DIVIDE</field>
+                            <value name="A">
+                              <shadow type="math_number" id="p,EG1KEWhS.EEvNYx886">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="my_variables_get_dynamic" id="@BW_4{o%X%Lxfi$}u!@+">
+                                <mutation blockstyle="Number"></mutation>
+                                <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="math_number" id="z];wE+V#g$l]7V`;a-F7">
+                                <field name="NUM">70</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="my_variables_set_dynamic" id="#E(F8o(jM[{rp}ZG@~th">
+                            <mutation blockstyle="Number"></mutation>
+                            <field name="VAR" id="ab)AHew3=uDp*U[{7t6Z" variabletype="Number">soil_moisture_percent</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="@}P#pZR6{L++7e=/zny(">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="math_single" id="lEZE:(6+2#d!K2ZPhSQ~">
+                                <field name="OP">ABS</field>
+                                <value name="NUM">
+                                  <shadow type="math_number" id=".KCbvp#O*@+CWM/B}Mf9">
+                                    <field name="NUM">9</field>
+                                  </shadow>
+                                  <block type="math_arithmetic" id="4f6B]u8I1PR3$+bOY4m1">
+                                    <field name="OP">DIVIDE</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id="#IkhM;~C:3D$1ojE;LW6">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="read_DB" id="=:`?i_aw%#`#R;*PmKWo">
+                                        <value name="Key">
+                                          <shadow type="my_text" id="+O9Cen#1;.]@6SA2yXrA" inline="true">
+                                            <field name="TEXT"> soil_moisture_percent</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id=":t=i[60B/zVz*xFy+:2+">
+                                        <field name="NUM">100</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="my_variables_set_dynamic" id="}A2.i0mD9-p-):7Doj7d">
+                                <mutation blockstyle="Number"></mutation>
+                                <field name="VAR" id="Xt~^U9)NEYBdHxd6x#u|" variabletype="Number">environment_value</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number" id="{FGVIz3P*3n.qGBZGs0!">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="math_arithmetic" id="xz,O@PlQQ|K6~-3@|I_?">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id="SK6%Jy|4p/z8524bS8c.">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="my_variables_get_dynamic" id=")`qXv94CtCgEMKZmMPtK">
+                                        <mutation blockstyle="Number"></mutation>
+                                        <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="(cSd+!~W?hFN8+a=LhO?">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="math_arithmetic" id="3?Dw,`bmtg?gNmIVzux[">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id="#qUQ6i:ec(6bger)TfW5">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="my_variables_get_dynamic" id="njl{KNfeWH3iYM{_[jOi">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="o]Ju%3xzd#y^eh^K~?i(">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="my_variables_get_dynamic" id="Sj744dCMwchUJt-1f],l">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="ab)AHew3=uDp*U[{7t6Z" variabletype="Number">soil_moisture_percent</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="my_variables_set_dynamic" id="0}w[l,~%3dz4pj}8_EC6">
+                                    <mutation blockstyle="Number"></mutation>
+                                    <field name="VAR" id="Xt~^U9)NEYBdHxd6x#u|" variabletype="Number">environment_value</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number" id="xo`D?cWF{}@1KA/2{2:|">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="math_arithmetic" id="z4j-Dh1RQT(xDfltRFg+">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id="qfUU9|h4Xmh1450t6KA(">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="my_variables_get_dynamic" id="4kVuhr8B?FdCW{Zhyr%Z">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="?CP/K3l7Ikek9ro/JE8}" variabletype="Number">soil_moisture_weight</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="H3r=2I?8*@QyGfs2jgpF">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="my_variables_get_dynamic" id="*S:q@$%`lsWWpig0?6j!">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="ab)AHew3=uDp*U[{7t6Z" variabletype="Number">soil_moisture_percent</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="my_variables_change_dynamic_number" id="JA[I-g!N.w`AZ+Z!;H*m">
+                                        <mutation blockstyle="Number"></mutation>
+                                        <field name="VAR" id="Xt~^U9)NEYBdHxd6x#u|" variabletype="Number">environment_value</field>
+                                        <value name="VALUE">
+                                          <shadow type="math_number" id="Xk*H.{Fq@9]d[IkkI:Ss">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="math_arithmetic" id="R0vV;Q-t,@~B~7b!_l7f">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <shadow type="math_number">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="my_variables_get_dynamic" id="YCkK;D^77RXuu:~^=Mc^">
+                                                <mutation blockstyle="Number"></mutation>
+                                                <field name="VAR" id=",Tt@kdh7I{xDOgu4=)3s" variabletype="Number">humidity_weight</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="math_number">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="my_variables_get_dynamic" id="P?$~Os1X3MAek]==X!dG">
+                                                <mutation blockstyle="Number"></mutation>
+                                                <field name="VAR" id="n!`A-|G20qoz^)y^slM9" variabletype="Number">optimal_humidity</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="my_variables_change_dynamic_number" id="CTaMLp77wxG@`jMFgs]=">
+                                            <mutation blockstyle="Number"></mutation>
+                                            <field name="VAR" id="Xt~^U9)NEYBdHxd6x#u|" variabletype="Number">environment_value</field>
+                                            <value name="VALUE">
+                                              <shadow type="math_number">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="math_arithmetic" id="sAp/6uFi@#eE19p|82eU">
+                                                <field name="OP">MULTIPLY</field>
+                                                <value name="A">
+                                                  <shadow type="math_number">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="my_variables_get_dynamic" id="-Su7^5YfyvTo7$vDVAz4">
+                                                    <mutation blockstyle="Number"></mutation>
+                                                    <field name="VAR" id="BgpLylK4K))Xr-=KNd{G" variabletype="Number">tempreture_weight</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <shadow type="math_number">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="my_variables_get_dynamic" id="$Zn_TI{N8gy`$F9e}#Kn">
+                                                    <mutation blockstyle="Number"></mutation>
+                                                    <field name="VAR" id=".5Nv9K_f^UiTV@+!]@5/" variabletype="Number">optimal_temperature</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="graph" id="K)tRg/F=UG-d9N%jv(}W">
+                                                <field name="Color">1</field>
+                                                <field name="Clear">FALSE</field>
+                                                <value name="x">
+                                                  <shadow type="math_number">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="read_timer" id="O3QE^3e]C0gPlaL$]ZP{">
+                                                    <field name="Timer">0</field>
+                                                  </block>
+                                                </value>
+                                                <value name="y">
+                                                  <shadow type="math_number" id="6iI7iw2XFspgqYJ=m_!u">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="my_variables_get_dynamic" id="PF$0(,;4`-#v[kR.Gs@j">
+                                                    <mutation blockstyle="Number"></mutation>
+                                                    <field name="VAR" id="Xt~^U9)NEYBdHxd6x#u|" variabletype="Number">environment_value</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="wait" id="qdmD3k78dq^kWnhb]+G6">
+                                                    <field name="unit">ms</field>
+                                                    <value name="MilliSECONDS">
+                                                      <shadow type="math_number" id="Q0U-}MG]VDX7[l}zt2rv">
+                                                        <field name="NUM">100</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
